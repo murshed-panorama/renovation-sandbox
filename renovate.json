@@ -13,7 +13,7 @@
       "description": "Bump Karpenter/EKS AL2023 alias like al2023@vYYYYMMDD",
       "managerFilePatterns": ["/.*\\.(tf|tfvars|ya?ml)$/"],
       "matchStrings": [
-        "# renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?)versioning=loose\\s[\\s\\S]*?al2023@(?<version>v\\d{8})"
+        "# renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?)versioning=loose\\s[\\s\\S]*?al2023@(?<currentValue>v\\d{8})"
       ],
       "datasourceTemplate": "{{{datasource}}}",
       "depNameTemplate": "{{{depName}}}",
