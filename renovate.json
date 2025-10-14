@@ -1,0 +1,37 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended"
+  ],
+  "enabledManagers": ["custom.regex"],
+
+  "dependencyDashboard": true,
+  "labels": ["deps:ami-update", "k8s", "security"],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "description": "Bump Karpenter/EKS AL2023 alias like al2023@vYYYYMMDD",
+      "managerFilePatterns": ["/.*\\.(tf|tfvars|ya?ml)$/"],
+      "matchStrings": [
+        "# renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?)(?: versioning=(?<versioning>.*?))?\\s[\\s\\S]*?(?<currentValue>al2023@v\\d{8})"
+      ],
+      "datasourceTemplate": "{{{datasource}}}",
+      "depNameTemplate": "{{{depName}}}",
+      "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}loose{{/if}}",
+      "autoReplaceStringTemplate": "al2023@{{{newValue}}}"
+    }
+  ],
+
+  "packageRules": [
+    {
+      "matchDatasources": ["github-releases"],
+      "matchDepNames": ["awslabs/amazon-eks-ami"],
+      "groupName": "EKS AL2023 AMI release",
+      "prTitle": "chore(ami): bump AL2023 EKS AMI to {{newValue}}",
+      "minimumReleaseAge": "2 days",
+      "internalChecksFilter": "strict",
+      "assignees": ["@murshed-panorama"],
+      "labels": ["deps:ami-update"]
+    }
+  ]
+}
