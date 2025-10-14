@@ -21,7 +21,7 @@
       "autoReplaceStringTemplate": "al2023@{{{newValue}}}"
     }
   ],
-  "commitMessage": "RENOVATION {{{commitMessagePrefix}}} {{{commitMessageAction}}} {{{commitMessageTopic}}} {{{commitMessageExtra}}} {{{commitMessageSuffix}}}",
+  "commitMessagePrefix": "RENOVATION",
 
   "packageRules": [
     {
