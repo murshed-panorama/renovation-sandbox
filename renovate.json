@@ -27,7 +27,6 @@
       "matchDatasources": ["github-releases"],
       "matchDepNames": ["awslabs/amazon-eks-ami"],
       "groupName": "EKS AL2023 AMI release",
-      "prTitle": "chore(ami): bump AL2023 EKS AMI to {{newValue}}",
       "minimumReleaseAge": "2 days",
       "internalChecksFilter": "strict",
       "assignees": ["@murshed-panorama"],
