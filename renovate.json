@@ -15,6 +15,7 @@
       "matchStrings": [
         "# renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?)(?: versioning=(?<versioning>.*?))?\\s[\\s\\S]*?(?<currentValue>al2023@v\\d{8})"
       ],
+      "extractVersionTemplate": "{{{ regexExtract currentValue \"(v\\d{8})\" }}}",
       "datasourceTemplate": "{{{datasource}}}",
       "depNameTemplate": "{{{depName}}}",
       "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}loose{{/if}}",
